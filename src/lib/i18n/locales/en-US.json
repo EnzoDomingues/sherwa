@@ -1,0 +1,20 @@
+{
+  "date_format": "MM/dd/yyyy",
+  "date_time_format": "MM/dd/yyyy HH:mm",
+  "date_month_day_format": "MM/dd",
+  "time_format": "hh:mm",
+  "app_version": "Version %{version}",
+  "cell_phone": "Phone number",
+  "api_generic_message": "Something went wrong :(",
+  "Onboarding": {
+    "slides": {
+      "title_01_slide_01": "Connect with other\nplayers.",
+      "title_02_slide_01": "Everyone is welcome\nhere! ",
+      "title_01_slide_02": "Whether you're a pro or a noob,\na guide or a climber",
+      "title_01_slide_03": "A variety of games for you to play\nand learn the right way.",
+      "title_02_slide_03": "Enter now and start in\nthis new world. "
+      },
+    "button_login": "Login",
+    "button_create_account": "Create an account"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "date_format": "dd/MM/yyyy",
+  "date_time_format": "dd/MM/yyyy HH:mm",
+  "date_month_day_format": "dd/MM",
+  "time_format": "hh:mm",
+  "app_version": "Versão %{version}",
+  "api_generic_message": "Algo deu errado :(",
+  "cell_phone": "Celular",
+  "Onboarding": {
+    "slides": {
+        "title_01_slide_01": "Conecte-se com outros\njogadores.",
+        "title_02_slide_01": "Aqui todo mundo é\nbem-vindo!",
+        "title_01_slide_02": "Seja você um pro ou noob,\num guia ou um alpinista",
+        "title_01_slide_03": "Uma variedade de jogos para você jogar\ne aprender da maneira certa.",
+        "title_02_slide_03": "Entre agora e começe nesse\nnovo mundo."
+      },
+    "button_login": "Login",
+    "button_create_account": "Criar conta"
+  }
+}
