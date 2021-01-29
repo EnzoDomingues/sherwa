@@ -9,11 +9,12 @@
     "slides": {
       "title_01_slide_01": "Conéctate con otros\njugadores.",
       "title_02_slide_01": "¡Todos son bienvenidos\naquí! ",
-      "title_01_slide_02": "Si eres un profesional o un novato,\nun guía o un escalador ",
+      "title_01_slide_02": "Si eres un profesional o un novato,\nun guía o un escalador. ",
+      "title_02_slide_02": "Aquí no te\njuzgaremos!",
       "title_01_slide_03": "Una variedad de juegos para que juegues\ny aprendas de la manera correcta.",
       "title_02_slide_03": "Entra ahora y comienza en este\nnuevo mundo."
       },
     "button_login": "Iniciar sesión",
-    "button_create_account": "Crea una cuenta"
+    "button_create_account": "Crea cuenta"
   }
 }

@@ -28,10 +28,7 @@ export const ButtonContainer = styled.View<IButtomProps>`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-size: ${({ theme }) => theme.typography.sizes.button};
-  font-weight: ${({ theme, isTitleBold }) =>
-    isTitleBold
-      ? theme.typography.fontWeight
-      : theme.typography.fontWeightLight};
+  font-weight: bold;
   color: ${({ theme, color }) =>
     color ? theme.colors.text[color] : theme.colors.text.tertiary};
 `

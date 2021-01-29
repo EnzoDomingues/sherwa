@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 
 import { StackScreenProps } from '@react-navigation/stack'
-import { ImageBackground } from 'react-native'
+import { ImageBackground, Platform } from 'react-native'
 
 import { TStackScreens } from '~/@types/application/NavigationApplication.types'
 import { IOnboardingCarousel } from '~/@types/entities/OnboardingEntity.types'
@@ -11,25 +11,30 @@ import translate from '~/lib/i18n/i18n'
 import {
   Container,
   ContainerImage,
-  Title,
   Body,
-  ImageCarousel,
   ButtonView,
 } from '~/screens/Onboarding/OnboardingScreen.styles'
+import { DefaultTitle } from '~/theme/DefaultStyles'
+import { verticalScale } from '~/utils/scaling'
 
 export type TOnboardingProps = StackScreenProps<TStackScreens, 'Onboarding'>
 
 const carouselInfos: IOnboardingCarousel[] = [
   {
-    title: translate('Onboarding.slides.title_slide_01'),
+    title: translate('Onboarding.slides.title_01_slide_01'),
+    subTitle: translate('Onboarding.slides.title_02_slide_01'),
   },
   {
-    title: translate('Onboarding.slides.title_slide_02'),
+    title: translate('Onboarding.slides.title_01_slide_02'),
+    subTitle: translate('Onboarding.slides.title_02_slide_02'),
   },
   {
-    title: translate('Onboarding.slides.title_slide_03'),
+    title: translate('Onboarding.slides.title_01_slide_03'),
+    subTitle: translate('Onboarding.slides.title_02_slide_03'),
   },
 ]
+
+const bgImage = Platform.OS === 'ios' ? require('~/assets/images/bg-01-ios.png') : require('~/assets/images/bg-01.png')
 
 
 const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
@@ -38,7 +43,22 @@ const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
       carouselInfos?.length > 0 &&
       carouselInfos?.map((item, index) => (
         <Body key={index}>
-          <Title>{item.title}</Title>
+          <DefaultTitle
+            color="tertiary"
+            fontSize="title"
+            marginTop={verticalScale(14)}
+            marginBottom={verticalScale(10)}
+          >
+            {item.title}
+          </DefaultTitle>
+          <DefaultTitle
+            isBold
+            color="tertiary"
+            fontSize="title"
+            marginBottom={verticalScale(40)}
+          >
+            {item.subTitle}
+          </DefaultTitle>
         </Body>
       ))
     )
@@ -46,21 +66,29 @@ const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
 
   return (
     <Container>
-      <ContainerImage source={require('~/assets/images/bg-01.png')}>
+      <ContainerImage source={bgImage}>
         <Carousel
           scrollEnabled
           itemsPerInterval={1}
           items={carouselInfosItems}
           testID="Carousel infos"
-          showArrows
           showBullets
           colorBullet="sextanary"
-          colorBulletActive="quintenary"
+          colorBulletActive="tertiary"
         />
         <ButtonView>
           <Button
+            text={translate('Onboarding.button_create_account')}
+            bgColor="transparent"
+            color="sextanary"
+            borderColor="sextanary"
+            testID="Button enter login"
+            onPress={() => navigation.navigate('Login')}
+          />
+          <Button
             text={translate('Onboarding.button_login')}
-            width={'large'}
+            bgColor="sextanary"
+            color="primary"
             testID="Button enter login"
             onPress={() => navigation.navigate('Login')}
           />

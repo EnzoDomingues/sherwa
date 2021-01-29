@@ -8,10 +8,10 @@ const darkTheme = {
     fontWeightLight: '200',
     sizes: {
       onboarding: `${fontScale(22)}px`,
-      button: `${fontScale(14)}px`,
+      button: `${fontScale(16)}px`,
       text: `${fontScale(13)}px`,
       number: `${fontScale(12)}px`,
-      title: `${fontScale(20)}px`,
+      title: `${fontScale(21)}px`,
       subtitle: `${fontScale(15)}px`,
       lastOrderTitle: `${fontScale(18)}px`,
       lastOrderItem: `${fontScale(13)}px`,
@@ -23,8 +23,8 @@ const darkTheme = {
   },
   colors: {
     text: {
-      primary: '#323232',
-      secondary: '#6f6e6e',
+      primary: '#D1532F',
+      secondary: '#DE731C',
       tertiary: '#000000',
       quaternary: '#0078e9',
       quintenary: '#ff4444',
@@ -35,8 +35,8 @@ const darkTheme = {
       tentenary: '#07459A',
     },
     title: {
-      primary: '#323232',
-      secondary: '#6f6e6e',
+      primary: '#D1532F',
+      secondary: '#DE731C',
       tertiary: '#000000',
       quaternary: '#07459A',
       quintenary: '#1ab394',
@@ -48,8 +48,8 @@ const darkTheme = {
       elevenary: '#,',
     },
     background: {
-      primary: '#375f9b',
-      secondary: '#6f6e6e',
+      primary: '#D1532F',
+      secondary: '#DE731C',
       tertiary: '#000000',
       quaternary: '#0078e9',
       quintenary: '#213a5e',
@@ -60,6 +60,7 @@ const darkTheme = {
       ninetenary: '#E5E5E5',
       tentenary: '#d9d9d9',
       elevenary: '#ebebeb',
+      transparent: 'transparent',
     },
   },
 }
