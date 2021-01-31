@@ -4,8 +4,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { persistReducer, persistStore } from 'redux-persist'
 import createSagaMiddleware from 'redux-saga'
 
-import { InvoiceReducer } from '~/store/Invoice/InvoiceCreators'
 import SagaConfig from '~/store/SagaConfig'
+
+import AuthReducer from './Auth/AuthCreators'
 
 export type TApplicationState = ReturnType<typeof PersistedReducer>
 
@@ -15,7 +16,7 @@ const PERSIST_CONFIG = {
 }
 
 const ReducerConfig = combineReducers({
-  invoice: InvoiceReducer,
+  auth: AuthReducer,
 })
 
 export const PersistedReducer = persistReducer(PERSIST_CONFIG, ReducerConfig)

@@ -1,8 +1,8 @@
 import { spawn, all, call } from 'redux-saga/effects'
 
-import InvoiceSagas from '~/store/Invoice/InvoiceSagas'
+import AuthSagas from '~/store/Auth/AuthSagas'
 
-const sagas = [InvoiceSagas]
+const sagas = [AuthSagas]
 
 export default function* SagaConfig() {
   yield all(
@@ -12,10 +12,7 @@ export default function* SagaConfig() {
           try {
             yield call(saga)
             break
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(error)
-          }
+          } catch (error) {}
         }
       }),
     ),

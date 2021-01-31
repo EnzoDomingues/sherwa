@@ -1,0 +1,42 @@
+type User @model {
+  id: ID!
+  username: String!
+  email: String!
+  avatar: S3ObjectProfile
+  createdAt: String
+  updatedAt: String
+  name: String
+  bio: String
+  location: String
+  gender: String
+  birthdate: String
+  coints: Int
+}
+
+type Following @model {
+  id: ID
+  followId: ID
+  followingId: ID!
+  followerId: ID!
+  avatar: String
+  name: String
+  username: String
+  followed: Boolean
+}
+
+type Follower @model {
+  id: ID
+  followId: ID
+  followingId: ID!
+  followerId: ID!
+  avatar: String
+  name: String
+  username: String
+  followed: Boolean
+}
+
+type S3ObjectProfile {
+  bucket: String!
+  region: String!
+  key: String!
+}

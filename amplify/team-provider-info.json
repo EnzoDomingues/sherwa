@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sherwa-dev-111117-authRole",
+      "UnauthRoleArn": "arn:aws:iam::616925931290:role/amplify-sherwa-dev-111117-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::616925931290:role/amplify-sherwa-dev-111117-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-sherwa-dev-111117-deployment",
+      "UnauthRoleName": "amplify-sherwa-dev-111117-unauthRole",
+      "StackName": "amplify-sherwa-dev-111117",
+      "StackId": "arn:aws:cloudformation:us-east-1:616925931290:stack/amplify-sherwa-dev-111117/3269f630-63ce-11eb-861d-0a292b885373",
+      "AmplifyAppId": "d9n73g5r50pyq"
+    },
+    "categories": {
+      "auth": {
+        "sherwaa595e942": {}
+      }
+    }
+  }
+}

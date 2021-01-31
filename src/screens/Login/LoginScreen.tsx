@@ -1,5 +1,5 @@
-import React, { useRef, FunctionComponent, useState } from 'react'
-import { Platform } from 'react-native'
+import React, { useRef, FunctionComponent, useCallback, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { StackScreenProps } from '@react-navigation/stack'
 import * as Yup from 'yup'
@@ -10,11 +10,11 @@ import Button from '~/components/Button/ButtonComponent'
 import DismissKeyboard from '~/components/DismissKeyboard/DismissKeyboardComponent'
 import FormComponent from '~/components/Form/FormComponent'
 import Input from '~/components/Input/InputComponent'
-
 import translate from '~/lib/i18n/i18n'
-import {
-  FooterContainer,
-} from '~/screens/Login/LoginScreen.styles'
+import { FooterContainer } from '~/screens/Login/LoginScreen.styles'
+import { authEmailRequest } from '~/store/Auth/AuthCreators'
+import { selectAuthEmail } from '~/store/Auth/AuthSelector'
+import { IAuthEmailRequest } from '~/store/Auth/AuthTypes'
 import {
   DefaultTitle,
   DefaultContainer,
@@ -22,25 +22,37 @@ import {
   ContainerForm,
 } from '~/theme/DefaultStyles'
 import { verticalScale } from '~/utils/scaling'
-import { sleep } from '~/utils/testingSleep'
-
 export type TLoginProps = StackScreenProps<TStackScreens, 'Login'>
+
+interface IFormValues {
+  email: string
+  password: string
+}
 
 const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   const nextInput = useRef(null)
+  const dispatch = useDispatch()
+  const storeAuthEmail = useSelector(selectAuthEmail)
 
+  const getLogin = useCallback(
+    (authRequestParams: IAuthEmailRequest) =>
+      dispatch(authEmailRequest(authRequestParams)),
+    [dispatch],
+  )
 
-  const redirect = (): void => {
-    navigation.navigate('Home')
-    return
+  const loginFormSubmit = async (loginEmailRequest: IFormValues) => {
+    const formValues: IAuthEmailRequest = {
+      username: loginEmailRequest.email,
+      password: loginEmailRequest.password,
+    }
+    getLogin(formValues)
   }
 
-  const loginFormSubmit = async () => {
-
-    await sleep(1500)
-    redirect()
-  }
-
+  useEffect(() => {
+    storeAuthEmail !== null &&
+      storeAuthEmail !== undefined &&
+      navigation.navigate('Home')
+  }, [navigation, storeAuthEmail])
 
   return (
     <DismissKeyboard>
@@ -54,7 +66,9 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
           {translate('Login.already_access')}
         </DefaultTitle>
         <FormComponent
-          onSubmit={() => loginFormSubmit()}
+          onSubmit={(loginEmailRequest: IFormValues) =>
+            loginFormSubmit(loginEmailRequest)
+          }
           initialValues={{
             email: '',
             password: '',
@@ -75,7 +89,6 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
                 autoCapitalize="none"
                 returnKeyType="next"
                 onSubmitEditing={() => nextInput?.current.focus()}
-                maxLength={15}
                 autoFocus
               />
               <Input
@@ -119,11 +132,7 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
           )}
         </FormComponent>
         <FooterContainer>
-          <DefaultTitle
-            textAlign="center"
-            width={60}
-            fontSize="subtitle"
-          >
+          <DefaultTitle textAlign="center" width={60} fontSize="subtitle">
             {translate('Login.info_contact')}
           </DefaultTitle>
           <Button
