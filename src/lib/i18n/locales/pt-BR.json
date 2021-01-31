@@ -17,5 +17,22 @@
       },
     "button_login": "Login",
     "button_create_account": "Criar conta"
+  },
+  "Login":{
+    "already_access": "Já tenho acesso",
+    "email":"Email",
+    "enter_email":"Digite seu email",
+    "password":"Senha",
+    "enter_password":"Digite sua senha",
+    "forgot_password":"Esqueceu a senha?",
+    "button_enter": "Entrar",
+    "button_create_account": "Criar conta",
+    "info_contact": "Ainda não tem uma conta?"
+  },
+  "BottomTabs": {
+    "home": "INÍCIO",
+    "party": "PARTIDA RÁPIDA",
+    "group": "GRUPOS E GUIAS",
+    "profile": "PERFIL"
   }
 }

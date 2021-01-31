@@ -12,18 +12,28 @@ export interface IButtomProps {
   onPress?: (event?: GestureResponderEvent) => void
   disabled?: boolean
   isTitleBold?: boolean
+  isUnderline?: boolean
+  linearGradient?: boolean
   marginTop?: number
   marginBottom?: number
+  colorGradientLeft?: string
+  colorGradientRight?: string
 }
 
 export enum EButtonWidth {
-  small = '40%',
+  small = '45%',
   medium = '50%',
   large = '90%',
 }
 
 export enum EButtonHeight {
-  small = '20px',
-  medium = '50px',
+  small = '25px',
+  medium = '40px',
   large = '90px',
+}
+
+export enum EButtonLinearHeight {
+  small = 20,
+  medium = 40,
+  large = 90,
 }

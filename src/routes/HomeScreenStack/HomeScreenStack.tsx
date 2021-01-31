@@ -9,17 +9,12 @@ import {
 } from '~/@types/application/NavigationApplication.types'
 import translate from '~/lib/i18n/i18n'
 import HomeScreen from '~/screens/Home/HomeScreen'
-import RequestScreen from '~/screens/Orders/OrdersScreen'
 import ProfileScreen from '~/screens/Profile/ProfileScreen'
 
 const HOME_SCREENS: IHomeStackScreen[] = [
   {
     component: HomeScreen,
     name: 'Home',
-  },
-  {
-    component: RequestScreen,
-    name: 'Orders',
   },
   {
     component: ProfileScreen,

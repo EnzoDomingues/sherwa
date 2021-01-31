@@ -5,7 +5,9 @@ import {
   Title,
   ButtonFeedback,
 } from '~/components/Button/ButtonComponent.style'
-import { IButtomProps } from '~/components/Button/ButtonComponent.types'
+import { EButtonLinearHeight, EButtonWidth, IButtomProps } from '~/components/Button/ButtonComponent.types'
+import LinearGradient from 'react-native-linear-gradient';
+import { darkTheme } from '~/theme/variables';
 
 const ButtonComponent: FunctionComponent<IButtomProps> = ({
   testID,
@@ -16,11 +18,15 @@ const ButtonComponent: FunctionComponent<IButtomProps> = ({
   borderColor,
   bgColor,
   isTitleBold,
+  isUnderline,
   color,
   disabled,
   marginTop,
   marginBottom,
   justifyContent,
+  linearGradient,
+  colorGradientLeft,
+  colorGradientRight
 }) => {
   return (
     <ButtonFeedback
@@ -28,27 +34,52 @@ const ButtonComponent: FunctionComponent<IButtomProps> = ({
       disabled={disabled}
       onPress={onPress}
     >
-      <ButtonContainer
-        testID={`${testID} container`}
-        width={width}
-        height={height}
-        borderColor={borderColor}
-        bgColor={bgColor}
-        marginTop={marginTop}
-        disabled={disabled}
-        marginBottom={marginBottom}
-        justifyContent={justifyContent}
-      >
-        {text && (
-          <Title
-            color={color}
-            isTitleBold={isTitleBold}
-            testID={`${testID} text`}
-          >
-            {text}
-          </Title>
-        )}
-      </ButtonContainer>
+      {linearGradient? (
+        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={[colorGradientLeft, colorGradientRight]}
+          style={{
+            width:  EButtonWidth[width] ?? '48%',
+            borderRadius: darkTheme.borderRadiusLinear,
+            height: EButtonLinearHeight[height] ?? 48,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: marginTop ?? 0,
+            marginBottom: marginBottom ?? 0,
+            opacity: disabled ? 0.5 : 1
+          }}>
+          {text && (
+            <Title
+              color={color}
+              isTitleBold={isTitleBold}
+              testID={`${testID} text`}
+            >
+              {text}
+            </Title>
+          )}
+          </LinearGradient>
+      ): (
+        <ButtonContainer
+          testID={`${testID} container`}
+          width={width}
+          height={height}
+          borderColor={borderColor}
+          bgColor={bgColor}
+          marginTop={marginTop}
+          disabled={disabled}
+          marginBottom={marginBottom}
+          justifyContent={justifyContent}
+        >
+          {text && (
+            <Title
+              color={color}
+              isTitleBold={isTitleBold}
+              isUnderline={isUnderline}
+              testID={`${testID} text`}
+            >
+              {text}
+            </Title>
+          )}
+        </ButtonContainer>
+      )}
     </ButtonFeedback>
   )
 }

@@ -16,5 +16,22 @@
       },
     "button_login": "Iniciar sesión",
     "button_create_account": "Crea cuenta"
+  },
+  "Login":{
+    "already_access": "Ya tengo acceso",
+    "email":"Email",
+    "enter_email":"Escriba su correo electrónico",
+    "password":"Contraseña",
+    "enter_password":"Escribe tu contraseña",
+    "forgot_password":"Olvido la contraseña?",
+    "button_enter": "Iniciar sesión",
+    "button_create_account": "Crea una cuenta",
+    "info_contact": "¿Aún no tienes una cuenta?"
+  },
+  "BottomTabs": {
+    "home": "INICIO",
+    "party": "INICIO RÁPIDO",
+    "group": "GRUPOS Y GUÍAS",
+    "profile": "PERFIL"
   }
 }

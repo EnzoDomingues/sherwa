@@ -28,9 +28,11 @@ export const ButtonContainer = styled.View<IButtomProps>`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-size: ${({ theme }) => theme.typography.sizes.button};
-  font-weight: bold;
+  font-weight: ${({ isTitleBold }) => (isTitleBold ? 'bold' : 'normal')};
   color: ${({ theme, color }) =>
     color ? theme.colors.text[color] : theme.colors.text.tertiary};
+  text-decoration: ${({ isUnderline }) =>
+    isUnderline ? 'underline' : 'none'}; ;
 `
 
 export const ButtonFeedback = styled.TouchableNativeFeedback<IButtomProps>`

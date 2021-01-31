@@ -10,6 +10,8 @@ import {
 } from '~/@types/application/NavigationApplication.types'
 import { navigationRef } from '~/lib/navigate'
 import OnboardingScreen from '~/screens/Onboarding/OnboardingScreen'
+import LoginScreen from '~/screens/Login/LoginScreen'
+import HomeScreenStack from './HomeScreenStack/HomeScreenStack'
 
 const { Screen, Navigator } = createStackNavigator<TStackScreens>()
 
@@ -17,6 +19,14 @@ const SCREENS: IScreen[] = [
   {
     component: OnboardingScreen,
     name: 'Onboarding',
+  },
+  {
+    component: LoginScreen,
+    name: 'Login',
+  },
+  {
+    component: HomeScreenStack,
+    name: 'Home',
   },
 ]
 

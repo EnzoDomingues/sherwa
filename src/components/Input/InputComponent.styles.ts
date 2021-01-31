@@ -7,7 +7,7 @@ export const TextInput = styled.TextInput`
   height: 48px;
   width: 100%;
   font-size: ${({ theme }) => theme.typography.sizes.text};
-  color: ${({ theme }) => theme.colors.background.sextanary};
+  color: ${({ theme }) => theme.colors.background.quaternary};
 `
 
 export const Container = styled.View`
@@ -19,7 +19,7 @@ export const Container = styled.View`
 `
 export const ContainerInput = styled.View`
   border-radius: 6px;
-  border: 1px solid ${({ theme }) => theme.colors.background.sextanary};
+  border: 1px solid ${({ theme }) => theme.colors.background.septenary};
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -33,7 +33,7 @@ export const Label = styled.Text`
   padding-top: ${verticalScale(2)}px;
   padding-bottom: ${verticalScale(8)}px;
   font-size: ${({ theme }) => theme.typography.sizes.button};
-  color: ${({ theme }) => theme.colors.background.sextanary};
+  color: ${({ theme }) => theme.colors.background.quaternary};
 `
 
 export const ContainerError = styled.View`

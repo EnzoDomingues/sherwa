@@ -37,10 +37,19 @@ describe('OnboardingScreen', () => {
     expect(items).toBeDefined()
   })
 
-  it('Should call function when press button', async () => {
+  it('Should call function when press button login', async () => {
     const { findByTestId } = setup()
 
     const button = await findByTestId('Button enter login touchable')
+    fireEvent.press(button)
+
+    expect(navigateMock).toBeCalledWith('Login')
+  })
+  
+  it('Should call function when press button create account', async () => {
+    const { findByTestId } = setup()
+
+    const button = await findByTestId('Button enter create account touchable')
     fireEvent.press(button)
 
     expect(navigateMock).toBeCalledWith('Login')

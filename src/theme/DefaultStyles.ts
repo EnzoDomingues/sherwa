@@ -6,13 +6,13 @@ import {
   IDefaultStylesProps,
   EDefaultJustifyContent,
 } from '~/@types/application/StylesApplication.types'
-import { verticalScale } from '~/utils/scaling'
+import { horizontalScale, verticalScale } from '~/utils/scaling'
 
 export const DefaultContainer = styled.View<IDefaultStylesProps>`
   display: flex;
   width: 100%;
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.background.primary};
+  background-color: ${({ theme }) => theme.colors.background.sextanary};
   flex-direction: column;
   justify-content: ${({ justifyContent }) =>
     EDefaultJustifyContent[justifyContent] ?? 'space-between'};
@@ -26,12 +26,14 @@ export const ViewRight = styled.View<IDefaultStylesProps>`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  padding-right: ${Platform.OS === 'android' ? horizontalScale(10) : 0}px;
   width: ${({ width }) => width ?? 100}%;
 `
 
 export const ContainerForm = styled.View`
   width: 100%;
   height: 100%;
+  padding-horizontal: ${horizontalScale(8)}px;
   flex-direction: column;
   align-items: center;
 `
@@ -47,7 +49,7 @@ export const ButtonView = styled.View`
 
 export const DefaultTitle = styled.Text<IDefaultStylesProps>`
   color: ${({ theme, color }) =>
-    color ? theme.colors.text[color] : theme.colors.text.sextanary};
+    color ? theme.colors.text[color] : theme.colors.text.tertiary};
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-size: ${({ theme, fontSize }) =>
     fontSize

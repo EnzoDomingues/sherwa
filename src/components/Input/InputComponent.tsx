@@ -78,7 +78,7 @@ const Input: React.FC<TInputProps> = props => {
       <ContainerInput>
         <TextInput
           placeholder={placeholder}
-          placeholderTextColor="#fff"
+          placeholderTextColor="#ccc"
           keyboardType={keyboardType}
           editable={editable}
           maxLength={maxLength}
@@ -97,8 +97,8 @@ const Input: React.FC<TInputProps> = props => {
           <TouchableNativeFeedback onPress={() => setVisible(!visible)}>
             <Icon
               name={visible ? 'eye' : 'eye-slash'}
-              size={fontScale(25)}
-              color="#fff"
+              size={fontScale(22)}
+              color="#000"
             />
           </TouchableNativeFeedback>
         )}

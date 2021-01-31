@@ -17,5 +17,22 @@
       },
     "button_login": "Login",
     "button_create_account": "Create account"
+  },
+  "Login":{
+    "already_access": "I already have access",
+    "email":"Email",
+    "enter_email":"Enter your e-mail",
+    "password":"Password",
+    "enter_password":"Enter your password",
+    "forgot_password":"Forgot password?",
+    "button_enter": "Log in",
+    "button_create_account": "Create account",
+    "info_contact": "Not have an account yet?"
+  },
+  "BottomTabs": {
+    "home": "HOME",
+    "party": "QUICK GAME",
+    "group": "GROUPS AND GUIDES",
+    "profile": "PROFILE"
   }
 }

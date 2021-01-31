@@ -82,7 +82,7 @@ const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
             bgColor="transparent"
             color="sextanary"
             borderColor="sextanary"
-            testID="Button enter login"
+            testID="Button enter create account"
             onPress={() => navigation.navigate('Login')}
           />
           <Button
