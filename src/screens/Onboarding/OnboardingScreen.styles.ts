@@ -1,5 +1,3 @@
-import { Platform } from 'react-native'
-
 import styled from 'styled-components/native'
 
 import { horizontalScale, verticalScale } from '~/utils/scaling'

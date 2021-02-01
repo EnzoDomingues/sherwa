@@ -1,4 +1,5 @@
 import React from 'react'
+import { LogBox } from 'react-native'
 import { enableScreens } from 'react-native-screens'
 import { Provider } from 'react-redux'
 
@@ -12,6 +13,9 @@ import { persistor, store } from '~/store/StoreConfig'
 import { darkTheme } from '~/theme/variables'
 Amplify.configure(config)
 enableScreens()
+
+LogBox.ignoreLogs(['Warning: ...'])
+LogBox.ignoreAllLogs()
 
 const App = () => {
   return (

@@ -2,7 +2,7 @@ import { Platform } from 'react-native'
 
 import styled from 'styled-components/native'
 
-import { verticalScale, horizontalScale } from '~/utils/scaling'
+import { horizontalScale } from '~/utils/scaling'
 
 export const FooterContainer = styled.View`
   display: flex;

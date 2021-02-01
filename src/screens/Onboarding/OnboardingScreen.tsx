@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
+import { Platform } from 'react-native'
 
 import { StackScreenProps } from '@react-navigation/stack'
-import { ImageBackground, Platform } from 'react-native'
 
 import { TStackScreens } from '~/@types/application/NavigationApplication.types'
 import { IOnboardingCarousel } from '~/@types/entities/OnboardingEntity.types'
@@ -34,8 +34,10 @@ const carouselInfos: IOnboardingCarousel[] = [
   },
 ]
 
-const bgImage = Platform.OS === 'ios' ? require('~/assets/images/bg-01-ios.png') : require('~/assets/images/bg-01.png')
-
+const bgImage =
+  Platform.OS === 'ios'
+    ? require('~/assets/images/bg-01-ios.png')
+    : require('~/assets/images/bg-01.png')
 
 const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
   const carouselInfosItems = useMemo(() => {
@@ -93,8 +95,8 @@ const OnboardingScreen: React.FC<TOnboardingProps> = ({ navigation }) => {
             onPress={() => navigation.navigate('Login')}
           />
         </ButtonView>
-        </ContainerImage>
-      </Container>
+      </ContainerImage>
+    </Container>
   )
 }
 

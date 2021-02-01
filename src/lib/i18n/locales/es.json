@@ -33,5 +33,14 @@
     "party": "INICIO RÁPIDO",
     "group": "GRUPOS Y GUÍAS",
     "profile": "PERFIL"
+  },
+  "Profile": {
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "my_games": "Mis Juegos:",
+    "my_clips": "Mis Clips:"
+  },
+  "Home": {
+    "best_clips": "Mejores clips"
   }
 }

@@ -34,5 +34,15 @@
     "party": "PARTIDA RÁPIDA",
     "group": "GRUPOS E GUIAS",
     "profile": "PERFIL"
+  },
+  "Profile": {
+    "followers": "Seguidores",
+    "following": "Seguindo",
+    "my_games": "Meus Jogos:",
+    "my_clips": "Meus Clipes:"
+  },
+  "Home": {
+    "best_clips": "Melhores Clipes"
   }
+
 }

@@ -34,5 +34,14 @@
     "party": "QUICK GAME",
     "group": "GROUPS AND GUIDES",
     "profile": "PROFILE"
+  },
+  "Profile": {
+    "followers": "Followers",
+    "following": "Following",
+    "my_games": "My Games:",
+    "my_clips": "My Clips:"
+  },
+  "Home": {
+    "best_clips": "Best Clips"
   }
 }

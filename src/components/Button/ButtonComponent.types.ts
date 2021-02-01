@@ -14,6 +14,7 @@ export interface IButtomProps {
   isTitleBold?: boolean
   isUnderline?: boolean
   linearGradient?: boolean
+  loading?: boolean
   marginTop?: number
   marginBottom?: number
   colorGradientLeft?: string

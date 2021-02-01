@@ -1,4 +1,10 @@
-import React, { useRef, FunctionComponent, useCallback, useEffect } from 'react'
+import React, {
+  useRef,
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { StackScreenProps } from '@react-navigation/stack'
@@ -31,6 +37,7 @@ interface IFormValues {
 
 const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   const nextInput = useRef(null)
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const storeAuthEmail = useSelector(selectAuthEmail)
 
@@ -41,6 +48,7 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   )
 
   const loginFormSubmit = async (loginEmailRequest: IFormValues) => {
+    setLoading(true)
     const formValues: IAuthEmailRequest = {
       username: loginEmailRequest.email,
       password: loginEmailRequest.password,
@@ -49,9 +57,10 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   }
 
   useEffect(() => {
-    storeAuthEmail !== null &&
-      storeAuthEmail !== undefined &&
+    if (storeAuthEmail !== null && storeAuthEmail !== undefined) {
+      setLoading(false)
       navigation.navigate('Home')
+    }
   }, [navigation, storeAuthEmail])
 
   return (
@@ -127,10 +136,12 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
                 linearGradient
                 onPress={formControl.handleSubmit}
                 disabled={!formControl.isValid}
+                loading={loading}
               />
             </ContainerForm>
           )}
         </FormComponent>
+
         <FooterContainer>
           <DefaultTitle textAlign="center" width={60} fontSize="subtitle">
             {translate('Login.info_contact')}
