@@ -7,11 +7,9 @@ import { EAuthTypes, IAuthState } from '~/store/Auth/AuthTypes'
 export function* getAuthEmailSaga(action) {
   try {
     const response: IAuthState = yield call([Auth, 'signIn'], action.payload)
-    console.log(response)
 
     yield put(authSuccess(response.signInUserSession))
   } catch (error) {
-    console.log(error)
     yield put(authFailure(error))
   }
 }

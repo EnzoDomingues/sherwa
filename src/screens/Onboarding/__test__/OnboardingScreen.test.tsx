@@ -45,7 +45,7 @@ describe('OnboardingScreen', () => {
 
     expect(navigateMock).toBeCalledWith('Login')
   })
-  
+
   it('Should call function when press button create account', async () => {
     const { findByTestId } = setup()
 

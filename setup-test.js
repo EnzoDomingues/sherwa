@@ -1,7 +1,14 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme from 'enzyme'
+import { NativeModules } from 'react-native';
 
 Enzyme.configure({ adapter: new Adapter() })
+
+NativeModules.RNCNetInfo = {
+  getCurrentState: jest.fn(() => Promise.resolve()),
+  addListener: jest.fn(),
+  removeListeners: jest.fn()
+};
 
 jest.mock('react-native-screens', () => ({
     enableScreens: jest.fn(),
@@ -31,10 +38,13 @@ jest.mock('react-native-localize', () => ({
     ],
   }))
 
-  jest.mock('react-native-config', () => ({
-    IS_PRODUCTION: true,
-    API_HOST: 'http://prod.com.br',
-    DESC: 'prd',
+
+
+
+jest.mock('react-native-config', () => ({
+  IS_PRODUCTION: true,
+  API_HOST: 'http://prod.com.br',
+  DESC: 'prd',
 }))
 
 jest.mock('react-native-vector-icons', () => ({
