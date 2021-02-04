@@ -10,7 +10,7 @@ export function* getAuthEmailSaga(action) {
 
     yield put(authSuccess(response.signInUserSession))
   } catch (error) {
-    yield put(authFailure(error))
+    yield put(authFailure(error.message))
   }
 }
 

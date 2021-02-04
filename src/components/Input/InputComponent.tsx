@@ -81,6 +81,7 @@ const Input: React.FC<TInputProps> = props => {
           placeholderTextColor="#ccc"
           keyboardType={keyboardType}
           editable={editable}
+          autoCorrect={false}
           maxLength={maxLength}
           ref={handleRef}
           testID={testID}

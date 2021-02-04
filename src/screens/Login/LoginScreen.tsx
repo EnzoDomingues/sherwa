@@ -19,7 +19,10 @@ import Input from '~/components/Input/InputComponent'
 import translate from '~/lib/i18n/i18n'
 import { FooterContainer } from '~/screens/Login/LoginScreen.styles'
 import { authEmailRequest } from '~/store/Auth/AuthCreators'
-import { selectAuthEmail } from '~/store/Auth/AuthSelector'
+import {
+  selectAuthEmail,
+  selectAuthEmailFailure,
+} from '~/store/Auth/AuthSelector'
 import { IAuthEmailRequest } from '~/store/Auth/AuthTypes'
 import {
   DefaultTitle,
@@ -38,8 +41,10 @@ interface IFormValues {
 const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   const nextInput = useRef(null)
   const [loading, setLoading] = useState(false)
+  const [messageError, setMessageError] = useState('')
   const dispatch = useDispatch()
   const storeAuthEmail = useSelector(selectAuthEmail)
+  const storeAuthEmailFailure = useSelector(selectAuthEmailFailure)
 
   const getLogin = useCallback(
     (authRequestParams: IAuthEmailRequest) =>
@@ -59,9 +64,19 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
   useEffect(() => {
     if (storeAuthEmail !== null && storeAuthEmail !== undefined) {
       setLoading(false)
+      setMessageError('')
       navigation.navigate('Home')
     }
   }, [navigation, storeAuthEmail])
+
+  useEffect(() => {
+    if (storeAuthEmailFailure !== null && storeAuthEmailFailure !== undefined) {
+      setLoading(false)
+      console.log(storeAuthEmailFailure)
+
+      setMessageError(storeAuthEmailFailure)
+    }
+  }, [storeAuthEmailFailure])
 
   return (
     <DismissKeyboard>
@@ -110,6 +125,7 @@ const LoginScreen: FunctionComponent<TLoginProps> = ({ navigation }) => {
                 blurOnSubmit={true}
                 autoCapitalize="none"
                 isShowEyes
+                errorMessage={messageError && messageError}
               />
               <ViewRight>
                 <Button
