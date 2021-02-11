@@ -18,7 +18,7 @@ This documentation is intended to explain how to develop, test and build applica
 
 After performing the installs you should clone this repository to a local folder using `git clone`
 
-Note: We suggest following the [official getting started](https://facebook.github.io/react-native/docs/getting-started) react native documentation.
+Note: I suggest following the [official getting started](https://facebook.github.io/react-native/docs/getting-started) react native documentation.
 
 After clone repository, run `npm install` or `yarn`
 
